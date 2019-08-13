@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/custom_materialize-css.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        #titulo
+        {
+            color: #E63462;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #subtitulo
+        {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .divider
+        {
+            margin-top: 15px;
+            margin-bottom: 50px;
+            background: #E63462;
+            border-radius: 0.3rem;
+            border: none;
+            height: 0.6rem;
+            width: 150px;
+        }
+
+        .hidden-divider
+        {
+            padding: 5px 0 0 0;
+            visibility: hidden; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="max-width: 400px;">
+        <div class="card-panel">
+            <h6 class="center-align" id="subtitulo">Hecho por Finta©</h6>
+            <h1 class="center-align" id="titulo">Regnes</h1>
+            <hr class="divider">
+
+            <div class="row">
+                <div class="input-field">
+                    <i class="material-icons prefix">mail</i>
+                    <input id="icon_prefix" type="email" class="validate">
+                    <label for="icon_prefix">Email</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="icon_telephone" type="password" class="validate">
+                    <label for="icon_telephone">Contraseña</label>
+                </div>
+
+                <p>
+                    <label>
+                        <input type="checkbox" checked="checked"/>
+                        <span>Recordarme</span>
+                    </label>
+                </p>
+
+                <hr class="hidden-divider">
+                <button id="boton_login" class="waves-effect waves-light col s12 btn-small">INGRESAR</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>        
+</body>
+</html>

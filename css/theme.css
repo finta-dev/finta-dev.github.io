@@ -1,0 +1,25 @@
+/*
+    Paleta de colores
+    #333745 Onyx
+    #E63462 Paradise Pink
+    #FE5F55 Sunset Orange
+    #EDF4D9 Beige
+    #6FBC85 Iguana Green
+*/
+
+html
+{
+    font-size: 12px;
+}
+
+body
+{
+    align-items: center;
+    background: linear-gradient(45deg, #e63462 0%,#333745 100%);
+    color: #333745;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    width: 100vw;
+}
