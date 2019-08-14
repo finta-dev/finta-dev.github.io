@@ -49,11 +49,14 @@
             <li><a href="#!">Vacaciones MDQ</a></li>
             <li><a href="#!">Auto de papá</a></li>
         </ul>
-        <li><a href="#"><i class="material-icons">add_box</i>Nuevo espacio compartido</a></li>
+        <li><a href="#">Nuevo espacio compartido</a></li>
         <li><div class="divider"></div></li>
+        <li><a href="#" class="subheader">Funciones</a></li>
         <li><a href="#"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="#"><i class="material-icons">insert_chart</i>Reportes</a></li>
-        <li><a href="#"><i class="material-icons">alarm</i>Programar recordatorio</a></li>
+        <li><a href="#"><i class="material-icons">calendar_today</i>Calendario</a></li>
+        <li><a href="#"><i class="material-icons">list</i>To-Do</a></li>
+        <li><a href="#"><i class="material-icons">alarm</i>Programar recordatorios</a></li>
         <li><a href="#"><i class="material-icons">settings</i>Configuración</a></li>
         <li><div class="divider"></div></li>
         <li><a href="#" class="subheader">Otros</a></li>
@@ -62,16 +65,43 @@
         <li><a href="#" class="waves-effect">Reportar un bug</a></li>
     </ul> 
 
-    <hr class="hidden-divider">
 
     <!-- CONTENIDO -->
     <div class="container">
+
+            <div class="input-field col s12">
+                    <select>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8" selected>Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
+                </div>
+
         <div class="card-panel">
-            
+            <h6 class="center-align">Comparativa de gastos</h6>
+            <div class="hidden-divider"></div>
+            <canvas id="myChart"></canvas>
         </div>
 
         <div class="card-panel">
-            
+            <h6 class="center-align">Comparativa de usuarios</h6>
+            <div class="hidden-divider"></div>
+            <canvas id="myChart2"></canvas>
+        </div>
+
+        <div class="card-panel">
+            <h6 class="center-align">Resumen de gastos por mes</h6>
+            <div class="hidden-divider"></div>
+            <canvas id="myChart3"></canvas>
         </div>
 
         <div class="fixed-action-btn">
@@ -89,10 +119,11 @@
             </ul>
         </div>
     </div>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
     
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     <!-- inicializar sidebar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -122,6 +153,14 @@
         });
     </script>
 
+    <!-- inicializar selects -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
+
     <!-- inicializar menu plus-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -133,5 +172,107 @@
             });
         });
     </script>
+
+    <!-- Grafico de prueba 1-->
+    <script>
+    var ctx = document.getElementById('myChart');
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [30, 10, 20,5,3,1 ],
+                backgroundColor: [
+                    '#e91e63',
+                    '#f44336',
+                    '#ff9800',
+                    '#fdd835',
+                    '#4caf50',
+                    '#2196f3',
+                ],
+            }],
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: [
+                'Servicios',
+                'Limpieza',
+                'Comida',
+                'Transporte',
+                'Mascota',
+                'Extras'
+            ]
+        },
+        options: {
+            options: Chart.defaults.doughnut,
+            legend:{
+                position: 'right'
+            }
+        }
+    });
+    </script>
+
+    
+    <!-- Grafico de prueba 2-->
+    <script>
+        var ctx = document.getElementById('myChart2');
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: {
+                datasets: [{
+                    data: [30, 10, 20, 5, 3, 1],
+                }],
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    'Nacho',
+                    'Nahuel',
+                    'Victoria',
+                    'Jesi',
+                    'Choby',
+                    'Santi'
+                ]
+            },
+            options: {
+                options: Chart.defaults.doughnut,
+                legend:{
+                    display: false,
+                    position: 'right'
+                }
+            }
+        });
+    </script>
+
+    <!-- Grafico de prueba 3-->
+    <script>
+        var ctx = document.getElementById('myChart3');
+        var myDoughnutChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    data: [30, 10, 20, 5, 3, 1, 15, 30, 0, 0, 0, 0],
+                }],
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    'Enero',
+                    'Febrero',
+                    'Marzo',
+                    'Abril',
+                    'Mayo',
+                    'Junio',
+                    'Julio',
+                    'Agosto',
+                    'Septiembre',
+                    'Octubre',
+                    'Noviembre',
+                    'Diciembre'
+                ]
+            },
+            options: {
+                options: Chart.defaults.doughnut,
+                legend:{
+                    display: false,
+                    position: 'right'
+                }
+            }
+        });
+    </script>
+
 </body>
 </html>
