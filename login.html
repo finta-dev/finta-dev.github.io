@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/custom_materialize-css.css">
     <link rel="stylesheet" href="css/theme.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
+        body
+        {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #e63462 0%,#333745 100%);
+        }
+
         #titulo
         {
-            color: #FE5F55;
+            color: #E63462;
             font-weight: bold;
             margin: 0;
         }
@@ -30,17 +36,11 @@
         {
             margin-top: 10px;
             margin-bottom: 50px;
-            background: #FE5F55;
+            background: #E63462;
             border-radius: 0.3rem;
             border: none;
-            height: 0.6rem;
+            height: 0.5rem;
             width: 150px;
-        }
-
-        .hidden-divider
-        {
-            padding: 5px 0 0 0;
-            visibility: hidden; 
         }
     </style>
 </head>
@@ -72,7 +72,7 @@
                 </p>
 
                 <hr class="hidden-divider">
-                <button id="boton_login" class="waves-effect waves-light col s12 btn-small">INGRESAR</button>
+                <a href="dashboard.html" id="boton_login" class="waves-effect waves-light col s12 btn-small">INGRESAR</a>
             </div>
         </div>
     </div>

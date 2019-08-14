@@ -7,43 +7,131 @@
     <title>Dashboard</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="css/custom_materialize-css.css">
     <link rel="stylesheet" href="css/theme.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body{
+            background: #ECEFF1;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-
-        <!-- MENU PRINCIPAL-->
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo" style="padding-left: 15px;font-weight: 600">Regnes</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-                    <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-                    <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-                    <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-                </ul>
+    <!-- MENU -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Dashboard</a>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">Javascript</a></li>
+                <li><a href="mobile.html">Mobile</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <ul class="sidenav" id="mobile-menu">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="img/background_sidebar.jpg">
+                </div>
+                <a href="#user"><img class="circle" src="img/profile_pic.jpg"></a>
+                <a href="#name"><span class="white-text name">Franco Taboada</span></a>
+                <a href="#email"><span class="white-text email">taboadafn@gmail.com</span></a>
+                <a href="#email"><span class="white-text email"><b>Vacaciones MDQ</b></span></a>
             </div>
-        </nav>
-
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">Javascript</a></li>
-            <li><a href="mobile.html">Mobile</a></li>
+        </li>
+        <li><a href='#' class='dropdown-trigger' data-target='dropdown1'><i class="material-icons">home</i>Espacio<i class="material-icons right">arrow_drop_down</i></a></li>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">Casa</a></li>
+            <li><a href="#!">Vacaciones MDQ</a></li>
+            <li><a href="#!">Auto de papá</a></li>
         </ul>
-        
-        <div class="card-panel"></div>
+        <li><a href="#"><i class="material-icons">add_box</i>Nuevo espacio compartido</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="#"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="#"><i class="material-icons">insert_chart</i>Reportes</a></li>
+        <li><a href="#"><i class="material-icons">alarm</i>Programar recordatorio</a></li>
+        <li><a href="#"><i class="material-icons">settings</i>Configuración</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="#" class="subheader">Otros</a></li>
+        <li><a href="#" class="waves-effect">Acerca de..</a></li>
+        <li><a href="#" class="waves-effect">Recomendar aplicación</a></li>
+        <li><a href="#" class="waves-effect">Reportar un bug</a></li>
+    </ul> 
+
+    <hr class="hidden-divider">
+
+    <!-- CONTENIDO -->
+    <div class="container">
+        <div class="card-panel">
+            
+        </div>
+
+        <div class="card-panel">
+            
+        </div>
+
+        <div class="fixed-action-btn">
+            <a href="#" class="btn-floating btn-large">
+                <i class="large material-icons">add</i>
+            </a>
+            <ul>
+                <li><a href="#" class="btn-floating pink"><i class="material-icons">home</i></a></li> <!-- Cosas del hogar -->
+                <li><a href="#" class="btn-floating red"><i class="material-icons">flash_on</i></a></li> <!-- Servicios -->
+                <li><a href="#" class="btn-floating orange"><i class="material-icons">restaurant</i></a></li> <!-- Comida -->
+                <li><a href="#" class="btn-floating yellow darken-1"><i class="material-icons">directions_car</i></a></li> <!-- Transporte -->
+                <li><a href="#" class="btn-floating green"><i class="material-icons">local_laundry_service</i></a></li> <!-- Limpieza -->
+                <li><a href="#" class="btn-floating indigo"><i class="material-icons">pets</i></a></li> <!-- Mascotas -->
+                <li><a href="#" class="btn-floating purple"><i class="material-icons">monetization_on</i></a></li> <!-- Otros -->
+            </ul>
+        </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>     
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
+    
+    <!-- inicializar sidebar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, options);
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, {
+                edge: 'left',
+                draggable: true,
+                inDuration: 250,
+                outDuration: 200,
+                onOpenStart: null,
+                onOpenEnd: null,
+                onCloseStart: null,
+                onCloseEnd: null,
+                preventScrolling: true
+            });
         });
-    </script> 
+    </script>
+
+    <!-- inicializar dropdown-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, {
+                alignment:'right',
+                coverTrigger: false,
+            });
+        });
+    </script>
+
+    <!-- inicializar menu plus-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.fixed-action-btn');
+            var instances = M.FloatingActionButton.init(elems, {
+                direction: 'top',
+                hoverEnabled: false,
+                toolbarEnabled: false
+            });
+        });
+    </script>
 </body>
 </html>
